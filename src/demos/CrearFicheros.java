@@ -37,6 +37,9 @@ public class CrearFicheros {
         String directorio2="/carpeta1/carpeta2/carpeta3";
         String directorio3="C:\\prueba3\\C1\\C2\\C3";
         //Crear directorio prueba2
+        if (new File(directorio1).mkdir()) {
+            System.out.println("Directorio "+directorio1+" creado");
+        }
     } //Fin del main
 
 } //Fin de la clase CrearFicheros
