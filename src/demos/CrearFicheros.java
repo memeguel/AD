@@ -32,6 +32,11 @@ public class CrearFicheros {
         if (ruta.exists()) {
             ruta.delete();
         }
+        //Crear directorios
+        String directorio1="C:\\prueba2";
+        String directorio2="/carpeta1/carpeta2/carpeta3";
+        String directorio3="C:\\prueba3\\C1\\C2\\C3";
+        //Crear directorio prueba2
     } //Fin del main
 
 } //Fin de la clase CrearFicheros
