@@ -49,6 +49,11 @@ public class CrearFicheros {
         if (new File(directorio2).mkdirs()) {
             System.out.println("Directorio "+directorio2+" creado");
         }
+        //Crear directorios (directorio3)
+        File fichero3=new File(directorio3);
+        if (fichero3.mkdirs()) {
+            System.out.println("Directorio "+directorio3+" creado");
+        }
     } //Fin del main
 
 } //Fin de la clase CrearFicheros
