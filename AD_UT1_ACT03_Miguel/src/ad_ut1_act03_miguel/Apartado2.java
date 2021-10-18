@@ -10,24 +10,32 @@ import java.io.File;
 
 public class Apartado2 {
     public static void main(String[] args) {
-        File ruta=new File("/users/cfgs/documents/pruebas");
-        verContenido(ruta);
-    } //Fin del main
-    public static void verContenido(File carpeta) {
+    	String ruta="/users/"+System.getProperty("user.name")+"/documents";
+        File carpeta=new File(ruta);
         String t="";
+        verContenido(carpeta,t);
+    } //Fin del main
+    public static void verContenido(File carpeta,String t) {
+    	System.out.printf("%s%s --> %s%n",t,"Directorio",carpeta.getName());
+    	int i=0;
         File[] ficheros=carpeta.listFiles();
-            for (File fichero : ficheros) {
+        if (ficheros!=null) {
+        	for (File fichero : ficheros) {
                 if (fichero.isDirectory()) {
-                    System.out.printf("%s%s --> %s",tabulaciones(t),"Directorio",fichero.getName());
-                    verContenido(fichero);
-		}else{
-                    System.out.printf("%s%s --> %s",tabulaciones(t),"Archivo",fichero.getName());
+                	t+="    ";
+                    verContenido(fichero,t);
+                    i=t.length();
+                    t=t.substring(0, i-4);
+                }else{
+                	t+="    ";
+                    System.out.printf("%s%s --> %s%n",t,"Archivo",fichero.getName());
+                    i=t.length();
+                    t=t.substring(0, i-4);
                 }
 		
             }
+		}
+            
     }
-    public static String tabulaciones(String t){
-        t+="    ";
-        return t;
-    }
+    
 } //Fin de la clase Apartado2
