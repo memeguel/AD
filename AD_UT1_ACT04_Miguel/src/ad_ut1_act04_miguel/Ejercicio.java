@@ -1,7 +1,6 @@
 package ad_ut1_act04_miguel;
 
 import java.io.File;
-import java.util.Iterator;
 
 /**
  *
@@ -82,16 +81,16 @@ public class Ejercicio {
         fichero.setReadOnly();
         
 		if (fichero.canRead()) {
-			caracteristicas="read ";
+			caracteristicas="read, ";
 		}
 		else {
-			caracteristicas="not readable ";
+			caracteristicas="not readable, ";
 		}
 		if (fichero.canWrite()) {
-			caracteristicas+="write ";
+			caracteristicas+="write, ";
 		}
 		else {
-			caracteristicas+="not writable ";
+			caracteristicas+="not writable, ";
 		}
 		if (fichero.canExecute()) {
 			caracteristicas+="execute";
