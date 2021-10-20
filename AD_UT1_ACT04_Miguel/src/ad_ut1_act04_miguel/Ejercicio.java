@@ -79,9 +79,7 @@ public class Ejercicio {
         System.out.println("Apartado 4.5 Modificando y mostrando los atributos de "+fichero.getName());
         caracteristicas="";
         
-        fichero.setWritable(false,true);
-        fichero.setExecutable(false,true);
-        fichero.setReadable(false,true);
+        fichero.setReadOnly();
         
 		if (fichero.canRead()) {
 			caracteristicas="read ";
