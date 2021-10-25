@@ -26,4 +26,5 @@ public class Factorial {
         return num;
     }
 
+    
 } //Fin de la clase Factorial
