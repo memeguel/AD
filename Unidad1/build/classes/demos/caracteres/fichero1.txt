@@ -1,0 +1,3 @@
+Esto es una prueba de FileWriter
+*Esto es una prueba de FileWriter frase2
+AlbaceteÁvilaBadajoz
