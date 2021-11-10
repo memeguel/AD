@@ -50,10 +50,11 @@ public class Parte1 {
         System.out.println("El undécimo número es: "+num);
 
         System.out.println("--------------CONTENIDO FICHERO--------------");
-        for (int i = 0; raF.getFilePointer() != raF.length(); i++) {
-            raF.seek(pos * i);
+        raF.seek(pos * 0);
+        for (int i = 1; raF.getFilePointer() != raF.length(); i++) {
             num = raF.readInt();
             System.out.println("Número "+num);
+            raF.seek(pos * i);
         }
         System.out.println("--------------FIN FICHERO--------------");
     } //Fin del main
