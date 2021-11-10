@@ -37,6 +37,8 @@ public class Parte1 {
 
         System.out.println("Modificamos el undécimo valor (lo cambiamos por 555)...");
         raF.seek(pos * 11);
+        raF.readInt();
+        raF.seek(raF.getFilePointer()-4);
         raF.writeInt(555);
 
         System.out.println("Añadimos 999 al final del fichero...");
