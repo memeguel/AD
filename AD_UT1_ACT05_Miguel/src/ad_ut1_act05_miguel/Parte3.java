@@ -10,7 +10,7 @@ import java.io.RandomAccessFile;
 public class Parte3 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        RandomAccessFile f = new RandomAccessFile("src/ejercicio/fichero3.dat", "rw");
+        RandomAccessFile f = new RandomAccessFile("src/ad_ut1_act05_miguel/fichero3.dat", "rw");
         double precio;
         for (int i = 0; i < 50; i++) {
             precio = Math.random() * 200;
