@@ -15,7 +15,6 @@ public class Parte2 {
         try {
             Scanner sc = new Scanner(System.in);
             RandomAccessFile f = new RandomAccessFile("src/ad_ut1_act05_miguel/fichero2.dat", "rw");
-            f.setLength(0);
 
             boolean opSalir = true;
             int op;
