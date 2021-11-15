@@ -87,7 +87,7 @@ public class Parte2 {
         for (int i = 1; f.getFilePointer() != f.length(); i++) {
             numBuscado = f.readFloat();
             if (numBuscado == num1) {
-                f.seek(f.getFilePointer() - 4);
+                f.seek(f.getFilePointer() - tamañoDato);
                 f.writeFloat(num2);
                 break;
             }
