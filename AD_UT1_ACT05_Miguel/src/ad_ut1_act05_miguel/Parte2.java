@@ -11,56 +11,63 @@ import java.util.Scanner;
  */
 public class Parte2 {
 
-    public static void main(String[] args) throws FileNotFoundException, IOException, InterruptedException {
-        Scanner sc = new Scanner(System.in);
-        RandomAccessFile f = new RandomAccessFile("src/ad_ut1_act05_miguel/fichero2.dat", "rw");
-        f.setLength(0);
-        for (float i = 0; i < 100; i++) {
-            f.writeFloat(i);
-        }
+    public static void main(String[] args) {
+        try {
+            Scanner sc = new Scanner(System.in);
+            RandomAccessFile f = new RandomAccessFile("src/ad_ut1_act05_miguel/fichero2.dat", "rw");
+            f.setLength(0);
 
-        boolean opSalir = true;
-        int op;
-        float num1, num2;
-        while (opSalir) {
+            boolean opSalir = true;
+            int op;
+            float num1, num2;
+            while (opSalir) {
 
-            System.out.println("Introduzca el número de la opción a elegir:\n"
-                    + "1. Añadir número de tipo float al final del fichero.\n"
-                    + "2. Buscar en el fichero un número que se pedirá por consola.\n"
-                    + "3. Sustituir el número de la posición indicada.\n"
-                    + "4. Mostrar el fichero creado.\n"
-                    + "5. Salir");
-            op = sc.nextInt();
-            switch (op) {
-                case 1:
-                    System.out.print("Introduzca el número que desea añadir: ");
-                    num1 = sc.nextFloat();
-                    anadirNumero(f, num1);
-                    break;
-                case 2:
-                    System.out.print("Introduzca el número que desea buscar: ");
-                    num1 = sc.nextFloat();
-                    System.out.print("Introduzca el número que lo sustituirá: ");
-                    num2 = sc.nextFloat();
-                    buscarNumero(f, num1, num2);
-                    break;
-                case 3:
-                    System.out.print("Introduzca la posición que desea buscar: ");
-                    int pos = sc.nextInt();
-                    System.out.print("Introduzca el número que lo sustituirá: ");
-                    num2 = sc.nextFloat();
-                    sustituirNumeroPosIndicada(f, pos, num2);
-                    break;
-                case 4:
-                    mostrarFichero(f);
-                    break;
-                case 5:
-                    opSalir = false;
-                    break;
-                default:
-                    System.out.println("Ninguna opción asociada a ese número, intentelo de nuevo.");
-                    break;
+                System.out.println("Introduzca el número de la opción a elegir:\n"
+                        + "1. Añadir número de tipo float al final del fichero.\n"
+                        + "2. Buscar en el fichero un número que se pedirá por consola.\n"
+                        + "3. Sustituir el número de la posición indicada.\n"
+                        + "4. Mostrar el fichero creado.\n"
+                        + "5. Salir");
+                op = sc.nextInt();
+
+                switch (op) {
+                    case 1:
+                        System.out.print("Introduzca el número que desea añadir: ");
+                        num1 = sc.nextFloat();
+                        anadirNumero(f, num1);
+                        break;
+                    case 2:
+                        System.out.print("Introduzca el número que desea buscar: ");
+                        num1 = sc.nextFloat();
+                        System.out.print("Introduzca el número que lo sustituirá: ");
+                        num2 = sc.nextFloat();
+                        buscarNumero(f, num1, num2);
+                        break;
+                    case 3:
+                        System.out.print("Introduzca la posición que desea buscar: ");
+                        int pos = sc.nextInt();
+                        System.out.print("Introduzca el número que lo sustituirá: ");
+                        num2 = sc.nextFloat();
+                        sustituirNumeroPosIndicada(f, pos, num2);
+                        break;
+                    case 4:
+                        mostrarFichero(f);
+                        break;
+                    case 5:
+                        opSalir = false;
+                        break;
+                    default:
+                        System.out.println("Ninguna opción asociada a ese número, intentelo de nuevo.");
+                        break;
+                }
+
             }
+        } catch (FileNotFoundException fnfe) {
+            System.out.println("No es posible encontrar el fichero." + fnfe.getMessage());
+        } catch (IOException ioe) {
+            System.out.println("Ha ocurrido un problema." + ioe.getMessage());
+        } catch (InterruptedException ie) {
+            System.out.println("Fallo en la interrupción, tiempo excedido." + ie.getMessage());
         }
 
     } //Fin del main
