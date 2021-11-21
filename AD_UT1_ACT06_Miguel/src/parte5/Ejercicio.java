@@ -24,10 +24,23 @@ public class Ejercicio {
         bw.write(sc.nextLine());
         bw.flush();
         BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(f)));
-        String frase;
-        while ((frase=br.readLine())!=null) {            
-            System.out.println(frase.replaceAll(" ", ""));
-        }
+        String frase="";
+        
+         frase=br.readLine();
+        	
+        	char[] array1=frase.toCharArray();
+        	char[] array2=frase.toUpperCase().toCharArray();
+        	for (int i = 0; i < frase.length(); i++) {
+        		char c=array1[i];
+				if (c==array2[i]) {
+					array1[i]=Character.toLowerCase(c);
+				}else {
+					array1[i]=Character.toUpperCase(c);
+				}
+			}
+        	frase=String.valueOf(array1).replaceAll(" ", "");
+            System.out.println(frase);
+        
         br.close();
         bw.close();
         sc.close();
