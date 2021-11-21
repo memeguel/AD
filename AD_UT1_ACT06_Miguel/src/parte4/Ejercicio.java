@@ -3,9 +3,11 @@ package parte4;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 
@@ -18,10 +20,13 @@ public class Ejercicio {
     public static void main(String[] args) throws IOException {
         Scanner sc=new Scanner(System.in);
         File f=new File("src/parte4/fichero.dat");
-        BufferedWriter bw=new BufferedWriter(new FileWriter(f));
+        OutputStreamWriter osw=new OutputStreamWriter(new FileOutputStream(f));
         System.out.println("Introduzca una frase:");
-        bw.write(sc.nextLine());
-        bw.flush();
+        char[] frase=sc.nextLine().toCharArray();
+        
+			osw.write(frase);
+
+        osw.flush();
         InputStreamReader isr=new InputStreamReader(new FileInputStream(f));
         int c;
         while ((c=isr.read())!=-1) {            
@@ -30,7 +35,7 @@ public class Ejercicio {
             }
         }
         isr.close();
-        bw.close();
+        osw.close();
         sc.close();
     } //Fin del main
 
